@@ -7,15 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7048FE172C178F8B00D9CDED /* FormattingLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7048FE162C178F8B00D9CDED /* FormattingLanguages.swift */; };
+		7048FE192C17902F00D9CDED /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7048FE182C17902F00D9CDED /* Parser.swift */; };
+		7048FE1B2C1792F300D9CDED /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7048FE1A2C1792F300D9CDED /* Requester.swift */; };
+		7048FE232C17D10E00D9CDED /* BookHuntieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7048FE222C17D10E00D9CDED /* BookHuntieTests.swift */; };
+		7048FE2A2C17D13E00D9CDED /* EndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7048FE292C17D13E00D9CDED /* EndpointTest.swift */; };
 		70EF51E62C15028200D9BDAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EF51E52C15028200D9BDAC /* AppDelegate.swift */; };
 		70EF51E82C15028200D9BDAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EF51E72C15028200D9BDAC /* SceneDelegate.swift */; };
 		70EF51EA2C15028200D9BDAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EF51E92C15028200D9BDAC /* ViewController.swift */; };
 		70EF51ED2C15028200D9BDAC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 70EF51EC2C15028200D9BDAC /* Base */; };
 		70EF51EF2C15028400D9BDAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70EF51EE2C15028400D9BDAC /* Assets.xcassets */; };
 		70EF51F22C15028400D9BDAC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 70EF51F12C15028400D9BDAC /* Base */; };
+		70EF51FD2C150B5E00D9BDAC /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EF51FC2C150B5E00D9BDAC /* AppEnvironment.swift */; };
+		70EF52002C1519B700D9BDAC /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EF51FF2C1519B700D9BDAC /* Endpoint.swift */; };
+		70FD19D72C1695AF003ACE1C /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FD19D62C1695AF003ACE1C /* BookModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7048FE242C17D10E00D9CDED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70EF51DA2C15028200D9BDAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 70EF51E12C15028200D9BDAC;
+			remoteInfo = BookHuntie;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		7048FE162C178F8B00D9CDED /* FormattingLanguages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattingLanguages.swift; sourceTree = "<group>"; };
+		7048FE182C17902F00D9CDED /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		7048FE1A2C1792F300D9CDED /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
+		7048FE202C17D10E00D9CDED /* BookHuntieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookHuntieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7048FE222C17D10E00D9CDED /* BookHuntieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookHuntieTests.swift; sourceTree = "<group>"; };
+		7048FE292C17D13E00D9CDED /* EndpointTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTest.swift; sourceTree = "<group>"; };
 		70EF51E22C15028200D9BDAC /* BookHuntie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookHuntie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70EF51E52C15028200D9BDAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70EF51E72C15028200D9BDAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,9 +48,19 @@
 		70EF51EE2C15028400D9BDAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70EF51F12C15028400D9BDAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70EF51F32C15028400D9BDAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70EF51FC2C150B5E00D9BDAC /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		70EF51FF2C1519B700D9BDAC /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		70FD19D62C1695AF003ACE1C /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7048FE1D2C17D10E00D9CDED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		70EF51DF2C15028200D9BDAC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -37,10 +71,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7048FE212C17D10E00D9CDED /* BookHuntieTests */ = {
+			isa = PBXGroup;
+			children = (
+				7048FE222C17D10E00D9CDED /* BookHuntieTests.swift */,
+				7048FE292C17D13E00D9CDED /* EndpointTest.swift */,
+			);
+			path = BookHuntieTests;
+			sourceTree = "<group>";
+		};
 		70EF51D92C15028200D9BDAC = {
 			isa = PBXGroup;
 			children = (
 				70EF51E42C15028200D9BDAC /* BookHuntie */,
+				7048FE212C17D10E00D9CDED /* BookHuntieTests */,
 				70EF51E32C15028200D9BDAC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				70EF51E22C15028200D9BDAC /* BookHuntie.app */,
+				7048FE202C17D10E00D9CDED /* BookHuntieTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,6 +101,10 @@
 		70EF51E42C15028200D9BDAC /* BookHuntie */ = {
 			isa = PBXGroup;
 			children = (
+				70EF51FE2C1519A300D9BDAC /* Components */,
+				70EF51FB2C1508DE00D9BDAC /* Controller */,
+				70EF51FA2C1508D500D9BDAC /* View */,
+				70EF51F92C1508CE00D9BDAC /* Model */,
 				70EF51E52C15028200D9BDAC /* AppDelegate.swift */,
 				70EF51E72C15028200D9BDAC /* SceneDelegate.swift */,
 				70EF51E92C15028200D9BDAC /* ViewController.swift */,
@@ -67,9 +116,61 @@
 			path = BookHuntie;
 			sourceTree = "<group>";
 		};
+		70EF51F92C1508CE00D9BDAC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				70EF51FC2C150B5E00D9BDAC /* AppEnvironment.swift */,
+				70FD19D62C1695AF003ACE1C /* BookModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		70EF51FA2C1508D500D9BDAC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		70EF51FB2C1508DE00D9BDAC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		70EF51FE2C1519A300D9BDAC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				70EF51FF2C1519B700D9BDAC /* Endpoint.swift */,
+				7048FE162C178F8B00D9CDED /* FormattingLanguages.swift */,
+				7048FE182C17902F00D9CDED /* Parser.swift */,
+				7048FE1A2C1792F300D9CDED /* Requester.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7048FE1F2C17D10E00D9CDED /* BookHuntieTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7048FE282C17D10E00D9CDED /* Build configuration list for PBXNativeTarget "BookHuntieTests" */;
+			buildPhases = (
+				7048FE1C2C17D10E00D9CDED /* Sources */,
+				7048FE1D2C17D10E00D9CDED /* Frameworks */,
+				7048FE1E2C17D10E00D9CDED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7048FE252C17D10E00D9CDED /* PBXTargetDependency */,
+			);
+			name = BookHuntieTests;
+			productName = BookHuntieTests;
+			productReference = 7048FE202C17D10E00D9CDED /* BookHuntieTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		70EF51E12C15028200D9BDAC /* BookHuntie */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 70EF51F62C15028400D9BDAC /* Build configuration list for PBXNativeTarget "BookHuntie" */;
@@ -97,6 +198,10 @@
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					7048FE1F2C17D10E00D9CDED = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 70EF51E12C15028200D9BDAC;
+					};
 					70EF51E12C15028200D9BDAC = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -116,11 +221,19 @@
 			projectRoot = "";
 			targets = (
 				70EF51E12C15028200D9BDAC /* BookHuntie */,
+				7048FE1F2C17D10E00D9CDED /* BookHuntieTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7048FE1E2C17D10E00D9CDED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		70EF51E02C15028200D9BDAC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -134,17 +247,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7048FE1C2C17D10E00D9CDED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7048FE2A2C17D13E00D9CDED /* EndpointTest.swift in Sources */,
+				7048FE232C17D10E00D9CDED /* BookHuntieTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		70EF51DE2C15028200D9BDAC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70FD19D72C1695AF003ACE1C /* BookModel.swift in Sources */,
 				70EF51EA2C15028200D9BDAC /* ViewController.swift in Sources */,
+				7048FE1B2C1792F300D9CDED /* Requester.swift in Sources */,
+				70EF51FD2C150B5E00D9BDAC /* AppEnvironment.swift in Sources */,
+				7048FE172C178F8B00D9CDED /* FormattingLanguages.swift in Sources */,
+				7048FE192C17902F00D9CDED /* Parser.swift in Sources */,
+				70EF52002C1519B700D9BDAC /* Endpoint.swift in Sources */,
 				70EF51E62C15028200D9BDAC /* AppDelegate.swift in Sources */,
 				70EF51E82C15028200D9BDAC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7048FE252C17D10E00D9CDED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 70EF51E12C15028200D9BDAC /* BookHuntie */;
+			targetProxy = 7048FE242C17D10E00D9CDED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		70EF51EB2C15028200D9BDAC /* Main.storyboard */ = {
@@ -166,6 +302,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7048FE262C17D10E00D9CDED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5UVUR3L7C9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DulceVigueras.BookHuntieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookHuntie.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BookHuntie";
+			};
+			name = Debug;
+		};
+		7048FE272C17D10E00D9CDED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5UVUR3L7C9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DulceVigueras.BookHuntieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookHuntie.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BookHuntie";
+			};
+			name = Release;
+		};
 		70EF51F42C15028400D9BDAC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -344,6 +516,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7048FE282C17D10E00D9CDED /* Build configuration list for PBXNativeTarget "BookHuntieTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7048FE262C17D10E00D9CDED /* Debug */,
+				7048FE272C17D10E00D9CDED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		70EF51DD2C15028200D9BDAC /* Build configuration list for PBXProject "BookHuntie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
