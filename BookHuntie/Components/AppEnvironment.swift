@@ -73,7 +73,9 @@ final class Router: RouterProtocol {
         
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)
         urlComponents?.path = endpoint.path
+        
         urlComponents?.queryItems = [
+            
             URLQueryItem(name: endpoint.query, value: endpoint.searchValue)
         ]
         

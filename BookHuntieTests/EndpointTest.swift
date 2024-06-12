@@ -24,16 +24,20 @@ final class EndpointTest: XCTestCase {
         let environment = AppEnvironment()
         let router = Router(enviroment: environment)
         
-        let endpoint = GetBookDataEndpoint(searchValue: "swift")
+        //let endpoint = GetBookDataEndpoint(searchValue: "swift")
+        let endpoint2 = GetBookDataEndpoint(searchValue: "swift project")
         
-        guard let url = router.routeGutendexEndpoint(endpoint) else {
+        guard let url = router.routeGutendexEndpoint(endpoint2) else {
             XCTFail("URL shoud not be nil ")
             return
         }
       
-        XCTAssertEqual(url.absoluteString, "https://gutendex.com/books/?search=swift")
+        //XCTAssertEqual(url.absoluteString, "https://gutendex.com/books/?search=swift")
+        XCTAssertEqual(url.absoluteString, "https://gutendex.com/books/?search=swift%20project")
                 
     }
+
+
 
 
 
