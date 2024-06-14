@@ -115,6 +115,9 @@ final class SearchViewController: UIViewController {
 
     func showSearchBookOption(){
         print("Searching book")
+        
+        let viewControllerToPresent = SheetViewController()
+        present(viewControllerToPresent, animated: true)
     }
 
     func showSearchHistory(){

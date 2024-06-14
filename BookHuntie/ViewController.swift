@@ -36,6 +36,7 @@ class ViewController: UIViewController {
     private lazy var searchBookViewController = {
         let vc = SearchViewController()
         self.add(childViewController: vc)
+        
         return vc
     }()
     
@@ -58,12 +59,6 @@ class ViewController: UIViewController {
     
     func setupViews(){
    
-      
-        
-       // segmentControlMenu.insertSegment(withTitle: menu[0], at: 0, animated: false)
-        //segmentControlMenu.insertSegment(withTitle: menu[1], at: 1, animated: false)
-        //segmentControlMenu.selectedSegmentIndex = 0
-        
         view.addSubview(containerView)
         view.addSubview(segmentControlMenu)
         
@@ -80,9 +75,7 @@ class ViewController: UIViewController {
             containerView.heightAnchor.constraint(equalTo: view.heightAnchor),
             containerView.widthAnchor.constraint(equalTo: view.widthAnchor),
            
-        
         ])
-        
     }
     
     
@@ -91,15 +84,13 @@ class ViewController: UIViewController {
         containerView.addSubview(childViewController.view)
         childViewController.view.frame = containerView.frame
         childViewController.didMove(toParent: self)
-        
-        
     }
     
-    func remove(childViewController: UIViewController){
-        childViewController.willMove(toParent: nil)
-        childViewController.view.removeFromSuperview()
-        childViewController.removeFromParent()
-    }
+  //  func remove(childViewController: UIViewController){
+//        childViewController.willMove(toParent: nil)
+//        childViewController.view.removeFromSuperview()
+//        childViewController.removeFromParent()
+//    }
     
     
     @objc private func selectAnOption(_ sender: UISegmentedControl) {
