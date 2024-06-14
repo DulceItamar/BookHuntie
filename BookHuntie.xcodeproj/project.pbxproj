@@ -14,10 +14,10 @@
 		7048FE2A2C17D13E00D9CDED /* EndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7048FE292C17D13E00D9CDED /* EndpointTest.swift */; };
 		705EB9BF2C190FC10084CC3A /* RequesterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705EB9BE2C190FC10084CC3A /* RequesterTest.swift */; };
 		705EB9C12C191DF50084CC3A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705EB9C02C191DF50084CC3A /* SearchViewController.swift */; };
+		70E25FBE2C1BB00A00C4ADB1 /* SearchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E25FBD2C1BB00A00C4ADB1 /* SearchHistoryViewController.swift */; };
 		70EF51E62C15028200D9BDAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EF51E52C15028200D9BDAC /* AppDelegate.swift */; };
 		70EF51E82C15028200D9BDAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EF51E72C15028200D9BDAC /* SceneDelegate.swift */; };
 		70EF51EA2C15028200D9BDAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EF51E92C15028200D9BDAC /* ViewController.swift */; };
-		70EF51ED2C15028200D9BDAC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 70EF51EC2C15028200D9BDAC /* Base */; };
 		70EF51EF2C15028400D9BDAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70EF51EE2C15028400D9BDAC /* Assets.xcassets */; };
 		70EF51F22C15028400D9BDAC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 70EF51F12C15028400D9BDAC /* Base */; };
 		70EF51FD2C150B5E00D9BDAC /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EF51FC2C150B5E00D9BDAC /* AppEnvironment.swift */; };
@@ -44,11 +44,11 @@
 		7048FE292C17D13E00D9CDED /* EndpointTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTest.swift; sourceTree = "<group>"; };
 		705EB9BE2C190FC10084CC3A /* RequesterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequesterTest.swift; sourceTree = "<group>"; };
 		705EB9C02C191DF50084CC3A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		70E25FBD2C1BB00A00C4ADB1 /* SearchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewController.swift; sourceTree = "<group>"; };
 		70EF51E22C15028200D9BDAC /* BookHuntie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookHuntie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70EF51E52C15028200D9BDAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70EF51E72C15028200D9BDAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		70EF51E92C15028200D9BDAC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		70EF51EC2C15028200D9BDAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		70EF51EE2C15028400D9BDAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70EF51F12C15028400D9BDAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70EF51F32C15028400D9BDAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,7 +113,6 @@
 				70EF51E52C15028200D9BDAC /* AppDelegate.swift */,
 				70EF51E72C15028200D9BDAC /* SceneDelegate.swift */,
 				70EF51E92C15028200D9BDAC /* ViewController.swift */,
-				70EF51EB2C15028200D9BDAC /* Main.storyboard */,
 				70EF51EE2C15028400D9BDAC /* Assets.xcassets */,
 				70EF51F02C15028400D9BDAC /* LaunchScreen.storyboard */,
 				70EF51F32C15028400D9BDAC /* Info.plist */,
@@ -133,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				705EB9C02C191DF50084CC3A /* SearchViewController.swift */,
+				70E25FBD2C1BB00A00C4ADB1 /* SearchHistoryViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,7 +246,6 @@
 			files = (
 				70EF51EF2C15028400D9BDAC /* Assets.xcassets in Resources */,
 				70EF51F22C15028400D9BDAC /* Base in Resources */,
-				70EF51ED2C15028200D9BDAC /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +271,7 @@
 				70EF51EA2C15028200D9BDAC /* ViewController.swift in Sources */,
 				7048FE1B2C1792F300D9CDED /* Requester.swift in Sources */,
 				70EF51FD2C150B5E00D9BDAC /* AppEnvironment.swift in Sources */,
+				70E25FBE2C1BB00A00C4ADB1 /* SearchHistoryViewController.swift in Sources */,
 				7048FE172C178F8B00D9CDED /* FormattingLanguages.swift in Sources */,
 				7048FE192C17902F00D9CDED /* Parser.swift in Sources */,
 				70EF52002C1519B700D9BDAC /* Endpoint.swift in Sources */,
@@ -291,14 +291,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		70EF51EB2C15028200D9BDAC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				70EF51EC2C15028200D9BDAC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		70EF51F02C15028400D9BDAC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -477,9 +469,8 @@
 				INFOPLIST_FILE = BookHuntie/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -505,9 +496,8 @@
 				INFOPLIST_FILE = BookHuntie/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

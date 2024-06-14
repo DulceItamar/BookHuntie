@@ -19,136 +19,95 @@ class ViewController: UIViewController {
         let view = UISegmentedControl(items: menu)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.selectedSegmentIndex = 0
-
-
+        
+        
+        view.addTarget(self , action: #selector(selectAnOption(_:)), for: .valueChanged)
+        
         return view
     }()
     
-    private lazy var searchBookByAuthorNameButton: UIButton = {
-        var config = UIButton.Configuration.bordered()
-        config.title = "Search a book by author name"
-        config.titleAlignment = .center
-        config.baseBackgroundColor = UIColor(red: 237/255, green: 203/255, blue: 228/255, alpha: 1.0)
+    private lazy var containerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         
-        
-        let button = UIButton(configuration: config, primaryAction: UIAction(handler: { _ in
-            self.showSearchBookOption()
-        }))
-        button.titleLabel?.textAlignment = .center
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = .black
-        button.layer.cornerRadius = 20
-        button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-        
-        return button
+        return view
     }()
     
-    
-    private lazy var searchBookByTitleButton : UIButton = {
-       
-        var config = UIButton.Configuration.bordered()
-        config.title = "Search a book by title"
-        config.baseBackgroundColor = UIColor(red: 237/255, green: 203/255, blue: 228/255, alpha: 1.0)
-        
-        
-        let button = UIButton(configuration: config, primaryAction: UIAction(handler: { _ in
-            self.showSearchHistory()
-        }))
-        
-        button.titleLabel?.textAlignment = .center
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = .black
-        button.layer.cornerRadius = 20
-        button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-        return button
-        
+    private lazy var searchBookViewController = {
+        let vc = SearchViewController()
+        self.add(childViewController: vc)
+        return vc
     }()
     
-
-    private let stackView : UIStackView = {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .horizontal
-        stack.spacing = 20
-        return stack
+    private lazy var searchHistoryViewController = {
+       let vc = SearchHistoryViewController()
+        self.add(childViewController: vc)
+        return vc
     }()
-   
-    
 
     
     
   
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        view.backgroundColor = .systemBackground
+        setupViews()
+
+        searchBookViewController.view.isHidden = false
+    }
+    
+    
+    func setupViews(){
+   
+      
         
+       // segmentControlMenu.insertSegment(withTitle: menu[0], at: 0, animated: false)
+        //segmentControlMenu.insertSegment(withTitle: menu[1], at: 1, animated: false)
+        //segmentControlMenu.selectedSegmentIndex = 0
         
-        [segmentControlMenu, stackView].forEach { element in
-            view.addSubview(element)
-        }
-     
+        view.addSubview(containerView)
+        view.addSubview(segmentControlMenu)
         
-        [searchBookByTitleButton, searchBookByAuthorNameButton].forEach { button in
-            stackView.addArrangedSubview(button)
-        }
-        
-        
-       
-            
         NSLayoutConstraint.activate([
         
-            segmentControlMenu.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            segmentControlMenu.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            segmentControlMenu.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             
+            segmentControlMenu.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
+            segmentControlMenu.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
+            segmentControlMenu.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor),
             
-            
-            stackView.topAnchor.constraint(equalTo: segmentControlMenu.bottomAnchor, constant: 20),
-            stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            stackView.heightAnchor.constraint(equalToConstant: 100),
-            
-            
-         
-            
-            
+        
+            containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            containerView.heightAnchor.constraint(equalTo: view.heightAnchor),
+            containerView.widthAnchor.constraint(equalTo: view.widthAnchor),
+           
+        
         ])
         
- 
     }
     
     
-    func showSearchBookOption(){
-        print("Searching book")
-    }
-
-    func showSearchHistory(){
-        print("Search history")
-    }
-    
-    
-    @objc func buttonTapped(_ sender: UIButton){
-
-        sender.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        UIView.animate(withDuration: 0.2, delay: 0,
-                       usingSpringWithDamping: CGFloat(1.0),
-                       initialSpringVelocity: CGFloat(0.7),
-                       options: [.allowAnimatedContent]) {
-            sender.transform = CGAffineTransform(scaleX: 1.1, y: 1.1) // Enlarge the button slightly
-                    } completion: { _ in
-                        UIView.animate(withDuration: 0.2) {
-                            sender.transform = CGAffineTransform.identity // Return to original size
-                        }
-        }
-
-
-    }
-
+    func add(childViewController: UIViewController){
+        addChild(childViewController)
+        containerView.addSubview(childViewController.view)
+        childViewController.view.frame = containerView.frame
+        childViewController.didMove(toParent: self)
         
         
+    }
+    
+    func remove(childViewController: UIViewController){
+        childViewController.willMove(toParent: nil)
+        childViewController.view.removeFromSuperview()
+        childViewController.removeFromParent()
+    }
+    
+    
+    @objc private func selectAnOption(_ sender: UISegmentedControl) {
+
+        searchBookViewController.view.isHidden = sender.selectedSegmentIndex == 1
+        searchHistoryViewController.view.isHidden = sender.selectedSegmentIndex == 0
+    }
+
     }
 
 
