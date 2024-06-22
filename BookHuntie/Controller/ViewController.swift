@@ -69,9 +69,11 @@ class ViewController: UIViewController {
             segmentControlMenu.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
             segmentControlMenu.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor),
             
-        
+            
+           
             containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        
             containerView.heightAnchor.constraint(equalTo: view.heightAnchor),
             containerView.widthAnchor.constraint(equalTo: view.widthAnchor),
            
@@ -84,6 +86,19 @@ class ViewController: UIViewController {
         containerView.addSubview(childViewController.view)
         childViewController.view.frame = containerView.frame
         childViewController.didMove(toParent: self)
+        childViewController.view.translatesAutoresizingMaskIntoConstraints = false
+
+        
+        NSLayoutConstraint.activate([
+            
+            childViewController.view.topAnchor.constraint(equalTo: containerView.topAnchor),
+            childViewController.view.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+                      childViewController.view.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+                      childViewController.view.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+            
+        
+        
+        ])
     }
     
   //  func remove(childViewController: UIViewController){

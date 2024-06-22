@@ -6,26 +6,25 @@
 //
 
 import Foundation
-
+import UniformTypeIdentifiers
 
 struct BookModel: Decodable {
     let title: String
     let author: [Author]
-    let image: String
+    let format: Formats
     let downloadCount: Int
     let language: [String]
-    
-    
     
     
     enum CodingKeys:String, CodingKey {
         case title
         case author = "authors"
         case formats
-        case image = "image/jpeg"
         case downloadCount = "download_count"
         case language = "languages"
     }
+    
+
     
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -33,35 +32,44 @@ struct BookModel: Decodable {
         self.author = try container.decode([Author].self, forKey: .author)
         self.downloadCount = try container.decode(Int.self, forKey: .downloadCount)
         self.language = try container.decode([String].self, forKey: .language)
-        
-        let format = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .formats)
-        self.image = try format.decode(String.self, forKey: .image)
+        self.format = try container.decode(Formats.self, forKey: .formats)
+   
     }
+    
+    // Inicializador por defecto
+    init(
+        title: String = "",
+        author: [Author] = [],
+        format: Formats,
+        downloadCount: Int ,
+        language: [String] = []
+    ) {
+         self.title = title
+         self.author = author
+        self.format = format
+         self.downloadCount = downloadCount
+         self.language = language
+     }
     
     
 }
 
 
-struct Author: Decodable {
-    let name: String
-    let birthYear: Int
-    let deathYear: Int
+struct Formats: Decodable {
     
-    enum CodingKeys : String, CodingKey {
-        case name
-        case birthYear = "birth_year"
-        case deathYear = "death_year"
+     let image: URL?
+   
+    enum CodingKeys: String, CodingKey {
+        case image = "image/jpeg"
     }
+    
+    
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.name = try container.decode(String.self, forKey: .name)
-        self.birthYear = try container.decode(Int.self, forKey: .birthYear)
-        self.deathYear = try container.decode(Int.self, forKey: .deathYear)
+        self.image = try container.decodeIfPresent(URL.self, forKey: .image)
+        
     }
 }
 
 
-struct Books: Decodable {
-    let ok: Bool
-    let books: [BookModel]
-}
+

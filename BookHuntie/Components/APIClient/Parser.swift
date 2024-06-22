@@ -17,6 +17,8 @@ final class Parser: ParserProtocol {
     func parse<T>(_ data: Data, type: T.Type, decoder: JSONDecoder) -> T? where T: Decodable{
         do {
             return try decoder.decode(T.self, from: data)
+            
+            
         } catch let error as DecodingError {
             printDecodable(error: error)
             

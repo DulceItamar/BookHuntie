@@ -39,22 +39,5 @@ final class Requester: RequesterProtocol {
         return data
     }
     
-//    func execute(with endpoint: Endpoint, with uri: URL, completionBlock: @escaping (Result<Data, any Error>) -> ()) {
-//        
-//        let urlRequest = buildURLRequest(uri: uri, endpoint: endpoint)!
-//        let task = urlSeesion.dataTask(with: urlRequest) {
-//            data, response, error in
-//            guard let error = error else {
-//                completionBlock(.success(data!))
-//                return
-//            }
-//            completionBlock(.failure(error))
-//        }
-//        task.resume()
-//     
-//       
-//    }
-//    
 
-    
 }
