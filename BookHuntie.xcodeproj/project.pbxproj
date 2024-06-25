@@ -173,8 +173,6 @@
 		70EF51FA2C1508D500D9BDAC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				70E25FBD2C1BB00A00C4ADB1 /* SearchHistoryViewController.swift */,
-				70E25FBF2C1BD62D00C4ADB1 /* SheetViewController.swift */,
 				70D6DDB12C25E82F001706FD /* SearchView.swift */,
 				700D2BAE2C260A1800E36E03 /* SheetView.swift */,
 			);
@@ -185,6 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				705EB9C02C191DF50084CC3A /* SearchViewController.swift */,
+				70E25FBF2C1BD62D00C4ADB1 /* SheetViewController.swift */,
+				70E25FBD2C1BB00A00C4ADB1 /* SearchHistoryViewController.swift */,
 				70EF51E92C15028200D9BDAC /* ViewController.swift */,
 				70CA124B2C222B1F00BB9B03 /* BookListViewController.swift */,
 			);

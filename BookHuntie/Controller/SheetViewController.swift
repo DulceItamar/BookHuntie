@@ -13,74 +13,22 @@ class SheetViewController: UIViewController {
 //    let mainViewController  = MainViewController()
     
     var mainView: SheetView { self.view as! SheetView}
-    private let sheetView = SheetView()
+//    private let sheetView = SheetView()
     
     override func loadView() {
-        view = sheetView
+        view = SheetView()
     }
     
-    let apiClient = APIClient()
+    private let apiClient = APIClient()
 
     var searchLabelText: String?
-   
     var placeholder: String?
     
-//    private let searchLabel : UILabel = {
-//       let label = UILabel()
-//     
-//        label.font = .systemFont(ofSize: 24, weight: .bold)
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
-    
-    
-  //  var textField: UITextField?
-    
-//    private lazy var searchButton: UIButton = {
-//        var config = UIButton.Configuration.bordered()
-//        config.title = "Search"
-//        config.buttonSize = .medium
-//        config.titlePadding = 10.0
-//        let button = UIButton()
-//        button.backgroundColor = UIColor(red: 237/255, green: 203/255, blue: 228/255, alpha: 1.0)
-//        button.configuration = config
-//        button.tintColor = .white
-//        
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.layer.cornerRadius = 10
-//        button.layer.masksToBounds = true
-//        
-//        let attributes = NSAttributedString(string: config.title ?? " ", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
-//        button.setAttributedTitle(attributes, for: .normal)
-//        button.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
-//        button.isEnabled = false
-//        
-//        return button
-//    }()
-//    
-//    private lazy var stackView : UIStackView = {
-//       let stack = UIStackView()
-//        stack.axis = .vertical
-//        stack.translatesAutoresizingMaskIntoConstraints = false
-//        stack.spacing = 30
-//        return stack
-//        
-//    }()
-//    
-//    private var bottomLine: UIView = {
-//        let line = UIView()
-//        line.translatesAutoresizingMaskIntoConstraints = false
-//        line.backgroundColor = UIColor(red: 237/255, green: 203/255, blue: 228/255, alpha: 1.0)
-//        
-//        return line
-//    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTextField()
-        setupActions()
-       // setup()
+        setupSearchLabel()
         sheetForSearchBooks()
     }
     
@@ -116,7 +64,7 @@ class SheetViewController: UIViewController {
     func sheetForSearchBooks() {
         guard let presentationController = presentationController as? UISheetPresentationController else { return }
 
-   presentationController.detents = [.custom(resolver: { _ in
+        presentationController.detents = [.custom(resolver: { _ in
             return 250
         })]
      
@@ -127,17 +75,20 @@ class SheetViewController: UIViewController {
     
     private func setupTextField() {
 
-        sheetView.textField?.placeholder = placeholder
-        
-        sheetView.textField?.addTarget(
+        mainView.searchTextField.placeholder = placeholder
+        mainView.searchTextField.addTarget(
             self,
             action: #selector(textFieldDidChange),
             for: .editingChanged
         )
     }
     
+    private func setupSearchLabel(){
+        mainView.searchLabel.text =  searchLabelText
+    }
+    
     private func setupActions(){
-        sheetView.searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
+        mainView.searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
     }
     
     
@@ -149,12 +100,12 @@ class SheetViewController: UIViewController {
     
     @objc private func textFieldDidChange(){
         
-        sheetView.searchButton.isEnabled = !(sheetView.textField?.state.isEmpty ?? true)
+        mainView.searchButton.isEnabled = !(mainView.searchTextField.state.isEmpty)
         //searchButton.isEnabled = !(textField?.text?.isEmpty ?? true)
     }
 
     private func fetchData() async {
-        if let text = sheetView.textField?.text {
+        if let text = mainView.searchTextField.text {
             
             do {
                  let allBooks2 = try await apiClient.apiClient(parameter: text)

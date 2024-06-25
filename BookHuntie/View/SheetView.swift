@@ -10,9 +10,8 @@ import UIKit
 
 class SheetView: UIView {
     
-    private let searchLabel : UILabel = {
+     let searchLabel : UILabel = {
        let label = UILabel()
-     
         label.font = .systemFont(ofSize: 24, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -40,7 +39,19 @@ class SheetView: UIView {
         return button
     }()
     
-    var textField: UITextField?
+    //var textField: UITextField?
+    
+    lazy var searchTextField: UITextField = {
+        
+        let textField = UITextField.init(frame: CGRect.init(x: 0, y: 500, width: frame.size.width, height: 20))
+        textField.translatesAutoresizingMaskIntoConstraints = false
+            textField.textColor = .black
+        textField.backgroundColor = .systemBackground
+        let lineColor =  UIColor(red: 237/255, green: 203/255, blue: 228/255, alpha: 1.0)
+        textField.addBottomBorder(height: 2, color: lineColor)
+        
+        return textField
+    }()
     
     
     private lazy var stackView : UIStackView = {
@@ -50,14 +61,6 @@ class SheetView: UIView {
         stack.spacing = 30
         return stack
         
-    }()
-    
-    private var bottomLine: UIView = {
-        let line = UIView()
-        line.translatesAutoresizingMaskIntoConstraints = false
-        line.backgroundColor = UIColor(red: 237/255, green: 203/255, blue: 228/255, alpha: 1.0)
-        
-        return line
     }()
     
     
@@ -76,9 +79,13 @@ class SheetView: UIView {
         configureConstraints()
     }
     
+    
+    
     private func addSubviews(){
+        
+        
         addSubview(stackView)
-        [searchLabel, searchButton].forEach { element in
+        [searchLabel, searchTextField ,searchButton ].forEach { element in
             stackView.addArrangedSubview(element)
         }
     }
@@ -93,24 +100,29 @@ class SheetView: UIView {
             stackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            bottomLine.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-                       bottomLine.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
-                       bottomLine.bottomAnchor.constraint(equalTo: textField!.bottomAnchor, constant: 8),
-                       bottomLine.heightAnchor.constraint(equalToConstant: 1)
-
+//            bottomLine.leadingAnchor.constraint(equalTo: searchTextField.leadingAnchor),
+//            bottomLine.trailingAnchor.constraint(equalTo: searchTextField.trailingAnchor),
+//            bottomLine.bottomAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 8),
+//            bottomLine.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
     
-    
-    private func setupTextField() {
-        textField = UITextField.init(frame: CGRect.init(x: 0, y: 500, width: frame.size.width, height: 20))
-        textField?.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        textField?.textColor = .black
-        textField?.backgroundColor = .systemBackground
-        textField?.borderStyle = .none
-        textField?.addSubview(bottomLine)
-        
+}
+
+
+extension UITextField {
+    internal func addBottomBorder(height: CGFloat, color: UIColor) {
+        let borderView = UIView()
+        borderView.backgroundColor = color
+        borderView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(borderView)
+        NSLayoutConstraint.activate(
+            [
+                borderView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                borderView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                borderView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 5),
+                borderView.heightAnchor.constraint(equalToConstant: height)
+            ]
+        )
     }
 }
