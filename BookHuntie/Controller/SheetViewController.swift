@@ -30,36 +30,9 @@ class SheetViewController: UIViewController {
         setupTextField()
         setupSearchLabel()
         sheetForSearchBooks()
+        setupActions()
     }
     
-//    private func setup() {
-//        
-//    
-//            searchLabel.text = searchLabelText
-//
-//        view.addSubview(stackView)
-//        view.backgroundColor = .systemBackground
-//        [searchLabel, textField!, searchButton].forEach { element in
-//            stackView.addArrangedSubview(element)
-//        }
-//        
-//        NSLayoutConstraint.activate([
-//            
-//            stackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 30),
-//           
-//            
-//            stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-//            stackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-//            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            
-//            bottomLine.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-//                       bottomLine.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
-//                       bottomLine.bottomAnchor.constraint(equalTo: textField!.bottomAnchor, constant: 8),
-//                       bottomLine.heightAnchor.constraint(equalToConstant: 1)
-//
-//        ])
-//        
-//    }
     
     func sheetForSearchBooks() {
         guard let presentationController = presentationController as? UISheetPresentationController else { return }
@@ -88,11 +61,14 @@ class SheetViewController: UIViewController {
     }
     
     private func setupActions(){
+        print("setupActions")
         mainView.searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
     }
     
     
     @objc private func searchButtonTapped(){
+        
+      
         Task{
             await fetchData()
         }
@@ -100,35 +76,40 @@ class SheetViewController: UIViewController {
     
     @objc private func textFieldDidChange(){
         
-        mainView.searchButton.isEnabled = !(mainView.searchTextField.state.isEmpty)
-        //searchButton.isEnabled = !(textField?.text?.isEmpty ?? true)
+        mainView.searchButton.isEnabled = !(mainView.searchTextField.text?.isEmpty ?? true)
+      
     }
 
     private func fetchData() async {
+        var bookResponse: BookResponse? = nil
         if let text = mainView.searchTextField.text {
             
             do {
-                 let allBooks2 = try await apiClient.apiClient(parameter: text)
-                    print(allBooks2)
+               bookResponse = try await apiClient.apiClient(parameter: text)
+                
+                print(bookResponse?.results ?? " Not found books")
                     print("Prueba con apiClient")
                 
                 
             } catch {
                 print("Error fetching books: \(error.localizedDescription)")
             }
+            guard let allBooks = bookResponse else { return }
+            
+            navigateToBookList(with: allBooks.results)
           
-          //  let allBooks = await mainViewController.fetchBook(book:text)
 
         }
-        //navigateToSearchResults(with: allBooks)
+       
     }
     
-//    private func navigateToSearchResults(with books: [BookModel]){
-//        let searchResultsVC = SearchResultsViewController()
-//        searchResultsVC.books = books
-//        
-//        self.navigationController?.pushViewController(searchResultsVC, animated: true)
-//    }
+    
+    private func navigateToBookList(with books: [BookModel]) {
+        let bookListViewController = BooksListViewController()
+        bookListViewController.bookResponse?.results = books
+        self.navigationController?.pushViewController(bookListViewController, animated: true)
+    }
+
     
 
 }

@@ -9,5 +9,5 @@ import Foundation
 
 struct BookResponse: Decodable {
 
-    let results: [BookModel]
+    var results: [BookModel]
 }

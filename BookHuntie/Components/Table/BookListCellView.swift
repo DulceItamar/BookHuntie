@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import SDWebImage
 
 class BookListCellView: UITableViewCell {
     
@@ -64,15 +64,24 @@ class BookListCellView: UITableViewCell {
     func configure(with book: BookModel) {
        
         
-        
         bookName.text = book.title
+        
+        guard let image = book.format.image else { return }
+        loadImage(url: image)
         
         guard let author = book.author.first else { return }
         authorName.text = author.name
-       
-
+    
+    }
+    
+    func loadImage(url image: URL) {
+        bookImageView.sd_setImage(with: image, placeholderImage: UIImage(named: "placeholder"))
+  
     }
 }
+
+
+
 
 extension UIImageView {
     func loadImage(from url: URL) {
